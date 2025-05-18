@@ -15,7 +15,7 @@
 }
 
 .sidebar h2 {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   margin-bottom: 40px;
   color: #00ffd5;
@@ -39,6 +39,8 @@
   text-decoration: none;
   color: #ffffff;
   font-size: 24px;
+    border: 1px solid #aeabab;
+
   transition: all 0.3s ease;
   display: block;
   padding: 8px 12px;
@@ -50,6 +52,22 @@
   color: #1e1e2f;
   font-weight: 600;
   transform: translateX(5px);
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top:280px;
+  
+}
+
+.social-icons a {
+  color: #f7f0f0;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #0077b5; /* or your theme color */
 }
 
 .footer {

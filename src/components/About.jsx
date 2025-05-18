@@ -5,7 +5,7 @@ function About() {
   return (
     <div className="about-fullpage">
       <div className="about-content">
-        <h1>About Country Explorer</h1>
+        <h1>About this Platform</h1>
         <p>
           Country Explorer is your comprehensive platform to discover detailed
           information about countries around the world. Explore flags, capitals,
