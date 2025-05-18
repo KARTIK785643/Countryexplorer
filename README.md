@@ -1,20 +1,21 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# React + Vite
+#  Country Comparison system
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and interactive React.js web app that lets users compare two countries side-by-side using real-time data from the [REST Countries API](https://restcountries.com/).
 
-Currently, two official plugins are available:
+# Deployed link:
+https://countryexplorer-kappa.vercel.app/
+## 🔧 Tech Stack
+- **Frontend:** React.js
+- **API:** REST Countries API
+- **Styling:** CSS 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- Select and compare any two countries
+- View flags, population, capital, region, and more
+- Responsive and clean UI
+- Real-time data fetching with `fetch`/`axios`
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Darshak
->>>>>>> 697db177601b30b3d19439f9c9055841904d752e
-=======
-# CountryExplorer_
->>>>>>> ac9a1b38ecd478c69012540d06141348b6f96069
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/yourusername/country-comparison-app.git
+   cd country-comparison-app
