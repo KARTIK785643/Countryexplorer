@@ -29,6 +29,8 @@ function Compare() {
       const response = await fetch('https://newsdata.io/api/1/news?apikey=pub_87802c80a0a4191d5294567568f3af8f3240a&q=India&language=en&category=top');
 
       const data = await response.json();
+          console.log('News API response:', data);  // <-- Add this
+
       if (data.articles) {
         setNews(data.articles);
       } else {
