@@ -1,0 +1,196 @@
+/* Container & Base */
+.compare-container {
+  margin-left: 220px;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ddeef0, #ffffff);
+  color: #222;
+}
+
+/* Heading */
+h1 {
+  font-size: 2rem;
+  color: #00796b;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Selectors area */
+.selectors {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+/* Select dropdown */
+select {
+  appearance: none;
+  background: white;
+  border: 2px solid #00796b;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  min-width: 180px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0,121,107,0.2);
+}
+
+select:hover,
+select:focus {
+  border-color: #004d40;
+  outline: none;
+  box-shadow: 0 0 8px #00796baa;
+}
+
+/* Button */
+button {
+  background: linear-gradient(45deg, #00796b, #004d40);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,121,107,0.4);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #004d40, #00796b);
+  box-shadow: 0 5px 14px rgba(0,121,107,0.7);
+}
+
+/* Comparison container */
+.comparison-box {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 5px 10px;
+}
+
+/* Each country card */
+.country-box {
+  background: white;
+  border-radius: 16px;
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.10),
+    0 3px 6px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  min-width: 380px;
+  max-width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.country-box:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.14),
+    0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Country name */
+.country-box h2 {
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+  color: #004d40;
+  border-bottom: 2px solid #00796b;
+  padding-bottom: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* Info paragraphs */
+.country-box p {
+  font-size: 0.85rem;
+  margin: 8px 0;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* Flag styling */
+.country-box img {
+  margin-top: 15px;
+  border-radius: 10px;
+  width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .comparison-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .selectors {
+    justify-content: space-around;
+  }
+}
+
+/* News Container */
+.news-container {
+  margin-top: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.news-container h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #00796b;
+  border-bottom: 1.5px solid #004d40;
+  padding-bottom: 4px;
+}
+
+.news-item {
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+.news-item a {
+  font-weight: 600;
+  color: #004d40;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.news-item a:hover {
+  color: #00796b;
+  text-decoration: underline;
+}
+
+.news-item p {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* Additional images styling */
+.coat-of-arms {
+  display: block;
+  max-width: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.flag-img {
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
