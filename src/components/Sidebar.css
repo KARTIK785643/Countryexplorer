@@ -58,9 +58,11 @@
   color: #cccccc;
   margin-top: 40px;
   border: 1px solid #aeabab;
-  padding-top: 20px;
+padding: 10px 0;
   margin-bottom: 50px;
 }
+
+
 .moving-text {
   position: fixed;
   top: 0;
