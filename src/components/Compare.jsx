@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Compare.css';
 
-const NEWS_API_KEY = '0d471c45e690f65ddc189eee5fb573c9';
+const NEWS_API_KEY = 'pub_87802c80a0a4191d5294567568f3af8f3240a';
 
 function Compare() {
   const [countryList, setCountryList] = useState([]);
@@ -26,9 +26,8 @@ function Compare() {
 
   const fetchNews = async (countryName, setNews) => {
     try {
-      const response = await fetch(
-        `https://gnews.io/api/v4/search?q=${encodeURIComponent(countryName)}&max=5&token=${NEWS_API_KEY}`
-      );
+      const response = await fetch('https://newsdata.io/api/1/news?apikey=pub_87802c80a0a4191d5294567568f3af8f3240a&q=India&language=en&category=top');
+
       const data = await response.json();
       if (data.articles) {
         setNews(data.articles);
