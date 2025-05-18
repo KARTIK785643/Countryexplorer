@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Compare.css';
 
-const NEWS_API_KEY ='0d471c45e690f65ddc189eee5fb573c9';
+const NEWS_API_KEY = '0d471c45e690f65ddc189eee5fb573c9';
 
 function Compare() {
   const [countryList, setCountryList] = useState([]);
@@ -27,10 +27,10 @@ function Compare() {
   const fetchNews = async (countryName, setNews) => {
     try {
       const response = await fetch(
-        `https://newsapi.org/v2/everything?q=${encodeURIComponent(countryName)}&pageSize=5&apiKey=${NEWS_API_KEY}`
+        `https://gnews.io/api/v4/search?q=${encodeURIComponent(countryName)}&max=5&token=${NEWS_API_KEY}`
       );
       const data = await response.json();
-      if (data.status === 'ok') {
+      if (data.articles) {
         setNews(data.articles);
       } else {
         setNews([]);
@@ -59,35 +59,34 @@ function Compare() {
     if (!detail) return null;
     return (
       <>
-  <h2>{detail.name.common} {detail.flag ? detail.flag : ''}</h2>
-  <p><strong>Capital:</strong> {detail.capital?.[0] || 'N/A'}</p>
-  <p><strong>Population:</strong> {detail.population.toLocaleString()}</p>
-  <p><strong>Area:</strong> {detail.area.toLocaleString()} km²</p>
-  <p><strong>Region:</strong> {detail.region}</p>
-  <p><strong>Subregion:</strong> {detail.subregion}</p>
-  <p><strong>Continent(s):</strong> {detail.continents?.join(', ') || 'N/A'}</p>
-  <p><strong>Languages:</strong> {detail.languages ? Object.values(detail.languages).join(', ') : 'N/A'}</p>
-  <p><strong>Currency:</strong> {detail.currencies ? Object.values(detail.currencies)[0].name : 'N/A'}</p>
-  <p><strong>Timezones:</strong> {detail.timezones?.join(', ') || 'N/A'}</p>
-  <p><strong>Borders:</strong> {detail.borders ? detail.borders.join(', ') : 'None'}</p>
-  <p><strong>Demonyms:</strong> {detail.demonyms ? detail.demonyms.eng.m : 'N/A'}</p>
-  <p><strong>Independent:</strong> {detail.independent ? 'Yes' : 'No'}</p>
-  <p><strong>Start of Week:</strong> {detail.startOfWeek}</p>
+        <h2>{detail.name.common} {detail.flag ? detail.flag : ''}</h2>
+        <p><strong>Capital:</strong> {detail.capital?.[0] || 'N/A'}</p>
+        <p><strong>Population:</strong> {detail.population.toLocaleString()}</p>
+        <p><strong>Area:</strong> {detail.area.toLocaleString()} km²</p>
+        <p><strong>Region:</strong> {detail.region}</p>
+        <p><strong>Subregion:</strong> {detail.subregion}</p>
+        <p><strong>Continent(s):</strong> {detail.continents?.join(', ') || 'N/A'}</p>
+        <p><strong>Languages:</strong> {detail.languages ? Object.values(detail.languages).join(', ') : 'N/A'}</p>
+        <p><strong>Currency:</strong> {detail.currencies ? Object.values(detail.currencies)[0].name : 'N/A'}</p>
+        <p><strong>Timezones:</strong> {detail.timezones?.join(', ') || 'N/A'}</p>
+        <p><strong>Borders:</strong> {detail.borders ? detail.borders.join(', ') : 'None'}</p>
+        <p><strong>Demonyms:</strong> {detail.demonyms ? detail.demonyms.eng.m : 'N/A'}</p>
+        <p><strong>Independent:</strong> {detail.independent ? 'Yes' : 'No'}</p>
+        <p><strong>Start of Week:</strong> {detail.startOfWeek}</p>
 
-  {/* New additions */}
-  <p><strong>Government:</strong> {detail.government || 'N/A'}</p>
-  <p><strong>UN Member:</strong> {detail.unMember ? 'Yes' : 'No'}</p>
-  <p><strong>Driving Side:</strong> {detail.car?.side || 'N/A'}</p>
-  <p><strong>Internet TLD:</strong> {detail.tld?.join(', ') || 'N/A'}</p>
-  <p><strong>Calling Code(s):</strong> {detail.idd ? `${detail.idd.root}${detail.idd.suffixes?.join(', ')}` : 'N/A'}</p>
-  <p><strong>Elevation (max):</strong> {detail.elevationMaxMeters ? `${detail.elevationMaxMeters} meters` : 'N/A'}</p>
-  <p><strong>Elevation (min):</strong> {detail.elevationMinMeters ? `${detail.elevationMinMeters} meters` : 'N/A'}</p>
-  <p><strong>Postal Code Format:</strong> {detail.postalCode?.format || 'N/A'}</p>
+        {/* New additions */}
+        <p><strong>Government:</strong> {detail.government || 'N/A'}</p>
+        <p><strong>UN Member:</strong> {detail.unMember ? 'Yes' : 'No'}</p>
+        <p><strong>Driving Side:</strong> {detail.car?.side || 'N/A'}</p>
+        <p><strong>Internet TLD:</strong> {detail.tld?.join(', ') || 'N/A'}</p>
+        <p><strong>Calling Code(s):</strong> {detail.idd ? `${detail.idd.root}${detail.idd.suffixes?.join(', ')}` : 'N/A'}</p>
+        <p><strong>Elevation (max):</strong> {detail.elevationMaxMeters ? `${detail.elevationMaxMeters} meters` : 'N/A'}</p>
+        <p><strong>Elevation (min):</strong> {detail.elevationMinMeters ? `${detail.elevationMinMeters} meters` : 'N/A'}</p>
+        <p><strong>Postal Code Format:</strong> {detail.postalCode?.format || 'N/A'}</p>
 
-  {detail.coatOfArms?.png && <img src={detail.coatOfArms.png} alt="Coat of Arms" className="coat-of-arms" />}
-  <img src={detail.flags.svg} alt={`${detail.name.common} flag`} width="120" className="flag-img" />
-</>
-
+        {detail.coatOfArms?.png && <img src={detail.coatOfArms.png} alt="Coat of Arms" className="coat-of-arms" />}
+        <img src={detail.flags.svg} alt={`${detail.name.common} flag`} width="120" className="flag-img" />
+      </>
     );
   };
 
