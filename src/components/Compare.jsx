@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Compare.css';
 
-const NEWS_API_KEY = import.meta.env.VITE_NEWS_API_KEY;
+const NEWS_API_KEY ='40d1061e0234434695e288699ea62778';
 
 function Compare() {
   const [countryList, setCountryList] = useState([]);
