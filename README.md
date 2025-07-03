@@ -3,7 +3,7 @@
 A simple and interactive React.js web app that lets users compare two countries side-by-side using real-time data from the [REST Countries API](https://restcountries.com/).
 
 # Deployed link:
-https://countryexplorer-kappa.vercel.app/
+https://countryexplorer-seven.vercel.app/
 ## 🔧 Tech Stack
 - **Frontend:** React.js
 - **API:** REST Countries API
