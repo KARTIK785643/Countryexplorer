@@ -12,27 +12,25 @@ function Compare() {
   const [news1, setNews1] = useState([]);
   const [news2, setNews2] = useState([]);
 
+  // Fetch country list on mount
   useEffect(() => {
-    // Fetch all countries and sort alphabetically
-    fetch('https://restcountries.com/v3.1/all')
+    fetch('https://api.first.org/data/v1/countries')
       .then(res => res.json())
       .then(data => {
-        const sorted = data
-          .map(country => country.name.common)
+        const sorted = Object.values(data.data)
+          .map(country => country.country)
           .sort((a, b) => a.localeCompare(b));
         setCountryList(sorted);
       })
       .catch(err => console.error('Error fetching countries:', err));
   }, []);
 
+  // Fetch news for a country
   const fetchNews = async (countryName, setNews) => {
     try {
       const url = `https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&q=${encodeURIComponent(countryName)}&language=en&category=top`;
       const response = await fetch(url);
       const data = await response.json();
-
-      console.log('News API response for', countryName, ':', data);
-
       if (data.results) {
         setNews(data.results);
       } else {
@@ -44,31 +42,37 @@ function Compare() {
     }
   };
 
+  // Fetch country comparison data
   const handleCompare = async () => {
     if (country1 && country2 && country1 !== country2) {
       try {
         const res1 = await fetch(`https://restcountries.com/v3.1/name/${country1}?fullText=true`);
         const res2 = await fetch(`https://restcountries.com/v3.1/name/${country2}?fullText=true`);
+        if (!res1.ok || !res2.ok) throw new Error("API fetch failed");
+
         const data1 = await res1.json();
         const data2 = await res2.json();
+
         setDetails1(data1[0]);
         setDetails2(data2[0]);
+
         fetchNews(country1, setNews1);
         fetchNews(country2, setNews2);
       } catch (error) {
         console.error('Error fetching country details:', error);
-        alert('Failed to fetch country details. Please try again.');
+        alert('Failed to fetch country details. Try again later.');
       }
     } else {
       alert('Please select two different countries.');
     }
   };
 
+  // Render details of one country
   const renderCountryInfo = (detail) => {
     if (!detail) return null;
     return (
       <>
-        <h2>{detail.name.common} {detail.flag ? detail.flag : ''}</h2>
+        <h2>{detail.name.common} {detail.flag || ''}</h2>
         <p><strong>Capital:</strong> {detail.capital?.[0] || 'N/A'}</p>
         <p><strong>Population:</strong> {detail.population?.toLocaleString() || 'N/A'}</p>
         <p><strong>Area:</strong> {detail.area?.toLocaleString() || 'N/A'} km²</p>
@@ -82,16 +86,10 @@ function Compare() {
         <p><strong>Demonyms:</strong> {detail.demonyms?.eng?.m || 'N/A'}</p>
         <p><strong>Independent:</strong> {detail.independent ? 'Yes' : 'No'}</p>
         <p><strong>Start of Week:</strong> {detail.startOfWeek || 'N/A'}</p>
-
-        {/* Additional properties */}
-        <p><strong>Government:</strong> {detail.government || 'N/A'}</p>
         <p><strong>UN Member:</strong> {detail.unMember ? 'Yes' : 'No'}</p>
         <p><strong>Driving Side:</strong> {detail.car?.side || 'N/A'}</p>
         <p><strong>Internet TLD:</strong> {detail.tld?.join(', ') || 'N/A'}</p>
         <p><strong>Calling Code(s):</strong> {detail.idd ? `${detail.idd.root}${detail.idd.suffixes?.join(', ')}` : 'N/A'}</p>
-        <p><strong>Elevation (max):</strong> {detail.elevationMaxMeters ? `${detail.elevationMaxMeters} meters` : 'N/A'}</p>
-        <p><strong>Elevation (min):</strong> {detail.elevationMinMeters ? `${detail.elevationMinMeters} meters` : 'N/A'}</p>
-        <p><strong>Postal Code Format:</strong> {detail.postalCode?.format || 'N/A'}</p>
 
         {detail.coatOfArms?.png && <img src={detail.coatOfArms.png} alt="Coat of Arms" className="coat-of-arms" />}
         {detail.flags?.svg && <img src={detail.flags.svg} alt={`${detail.name.common} flag`} width="120" className="flag-img" />}
@@ -99,6 +97,7 @@ function Compare() {
     );
   };
 
+  // Render news list
   const renderNews = (newsList) => {
     if (!newsList.length) {
       return <p>No recent news found.</p>;
@@ -109,7 +108,7 @@ function Compare() {
         {newsList.map((news, index) => (
           <div key={index} className="news-item">
             <a href={news.link || news.url} target="_blank" rel="noreferrer">{news.title}</a>
-            <p>{news.source_id || news.source?.name || 'Unknown source'} - {news.pubDate ? new Date(news.pubDate).toLocaleDateString() : news.pubDate}</p>
+            <p>{news.source_id || news.source?.name || 'Unknown source'} - {news.pubDate ? new Date(news.pubDate).toLocaleDateString() : 'Unknown date'}</p>
           </div>
         ))}
       </div>
