@@ -1,21 +1,30 @@
-#  Country Comparison system
+🌍 Country Comparison System
+A simple and interactive React.js web app that lets users compare two countries side-by-side using real-time data from multiple public APIs.
 
-A simple and interactive React.js web app that lets users compare two countries side-by-side using real-time data from the [REST Countries API](https://restcountries.com/).
+🔗 Deployed Link
+👉 https://countryexplorer-three.vercel.app/
 
-# Deployed link:
-https://countryexplorer-seven.vercel.app/
-## 🔧 Tech Stack
-- **Frontend:** React.js
-- **API:** REST Countries API
-- **Styling:** CSS 
+🔧 Tech Stack
+Frontend: React.js
 
-## ✨ Features
-- Select and compare any two countries
-- View flags, population, capital, region, and more
-- Responsive and clean UI
-- Real-time data fetching with `fetch`/`axios`
+APIs:
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/yourusername/country-comparison-app.git
-   cd country-comparison-app
+🌐 REST Countries API — for detailed country information
+
+🌍 First.org API — for the full list of countries
+
+📰 NewsData.io API — for live news by country
+
+Styling: CSS
+
+✨ Features
+Select and compare any two countries
+
+View flags, population, capital, area, region, languages, currency, borders, and more
+
+Real-time news from each country
+
+Responsive, clean, and easy-to-use interface
+
+Real-time data fetching using fetch
+
