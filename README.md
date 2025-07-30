@@ -2,7 +2,7 @@
 A simple and interactive React.js web app that lets users compare two countries side-by-side using real-time data from multiple public APIs.
 
 ## 🔗 Deployed Link
-👉 https://countryexplorer-three.vercel.app/
+👉https://countryexplorer-neon.vercel.app/
 
 ## 🔧 Tech Stack
 ##  React.js
