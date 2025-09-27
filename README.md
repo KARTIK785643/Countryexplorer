@@ -27,4 +27,8 @@ Real-time news from each country
 Responsive, clean, and easy-to-use interface
 
 Real-time data fetching using fetch
+<img width="1917" height="867" alt="country" src="https://github.com/user-attachments/assets/5527360c-0b79-4761-8f69-c346436231df" />
+
+<img width="1892" height="857" alt="country1" src="https://github.com/user-attachments/assets/f5c16d07-0c53-4a3a-b78e-ac6d5a41d391" />
+
 
