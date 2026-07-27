@@ -1,0 +1,23 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 260px; /* Sidebar width */
+  margin-top: 44px; /* Ticker top bar height */
+  min-height: calc(100vh - 44px);
+  padding: 32px;
+  transition: margin-left var(--transition-normal);
+  background: radial-gradient(circle at 50% 0%, rgba(224, 242, 254, 0.8) 0%, var(--bg-dark) 100%);
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px 16px;
+  }
+}
